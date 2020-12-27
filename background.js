@@ -63,27 +63,27 @@ function blockads() {
 
 
 //function for switching the blocker ON and OFF
-function receiver(request, sender, sendResponse) {
-	if (request == "ON") {
-		console.log("Switch : ON (bg)")
+// function receiver(request, sender, sendResponse) {
+// 	if (request == "ON") {
+// 		console.log("Switch : ON (bg)")
 		//Adding Listener to block request for Ads 
 		chrome.webRequest.onBeforeRequest.addListener(
 			blockads,
 			{ urls: block_urls },
 			["blocking"]
 		);
-	}
-	else {
-		console.log("Switch : OFF (bg)");
-		//Removing Listener to block request for Ads 
-		chrome.webRequest.onBeforeRequest.removeListener(
-			blockads,
-			{ urls: block_urls },
-			["blocking"]
-		);
-	}
+	// }
+	// else {
+	// 	console.log("Switch : OFF (bg)");
+	// 	//Removing Listener to block request for Ads 
+	// 	chrome.webRequest.onBeforeRequest.removeListener(
+	// 		blockads,
+	// 		{ urls: block_urls },
+	// 		["blocking"]
+	// 	);
+	// }
 
-}
+// }
 
 //Listener for recieving message from popup.js 
-chrome.runtime.onMessage.addListener(receiver);
+// chrome.runtime.onMessage.addListener(receiver);
